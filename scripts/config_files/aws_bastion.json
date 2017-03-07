@@ -1,0 +1,22 @@
+{
+	"environment": "Imperial Demo",
+	"tf_file_path":"scripts/aws_bastion",
+	"variable_path":"scripts/aws_bastion",
+	"inline_variables":{
+    "vpc_region": "us-east-1",
+		"aws_ssh_key_name": "${ENV['AWS_SSH_KEY_NAME']}",
+		"ami_id": "ami-0b33d91d",
+		"tfstate_bucket": "randy-terraform-bucket",
+    "vpc_state_key": "imperial/aws_vpc/terraform.tfstate",
+		"tag_owner": "Randy_Coburn"
+	},
+	"state_file":{
+		"type":"s3",
+		"config": {
+			"region":"us-east-1",
+			"bucket":"randy-terraform-bucket",
+			"key":"imperial/aws_bastion/terraform.tfstate"
+		}
+	},
+	"custom_args":["-parallelism=10"]
+}
