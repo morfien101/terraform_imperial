@@ -1,0 +1,24 @@
+{
+	"environment": "Imperial Demo",
+	"tf_file_path":"scripts/aws_rds",
+	"variable_path":"scripts/aws_rds",
+	"inline_variables":{
+		"vpc_region": "us-east-1",
+		"tfstate_bucket": "randy-terraform-bucket",
+		"vpc_state_key": "imperial/aws_vpc/terraform.tfstate",
+		"tag_owner": "Randy_Coburn",
+		"rds_size": "db.t2.large",
+		"rds_username": "whosthat",
+		"rds_password": "donttellanyonethis",
+		"rds_access_cidr": "10.199.0.0/16"
+	},
+	"state_file":{
+		"type":"s3",
+		"config": {
+			"region":"us-east-1",
+			"bucket":"randy-terraform-bucket",
+			"key":"imperial/aws_rds/terraform.tfstate"
+		}
+	},
+	"custom_args":["-parallelism=10"]
+}
