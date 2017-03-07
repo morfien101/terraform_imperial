@@ -1,0 +1,17 @@
+{
+	"environment": "Imperial Demo",
+	"tf_file_path":"scripts/aws_sqs",
+	"variable_path":"scripts/aws_sqs",
+	"inline_variables":{
+		"vpc_region": "us-east-1"
+	},
+	"state_file":{
+		"type":"s3",
+		"config": {
+			"region":"us-east-1",
+			"bucket":"randy-terraform-bucket",
+			"key":"imperial/aws_sqs/terraform.tfstate"
+		}
+	},
+	"custom_args":["-parallelism=10"]
+}
